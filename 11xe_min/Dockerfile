@@ -84,7 +84,18 @@ RUN yum -y install unzip libaio bc initscripts net-tools openssl compat-libstdc+
     ln -s $ORACLE_BASE/$PWD_FILE / && \
     cd $HOME && \
     rm -rf $INSTALL_DIR && \
+    rm -rf $ORACLE_HOME/demo && \
+    rm -rf $ORACLE_HOME/jdbc && \
+    rm -rf $ORACLE_HOME/jlib && \
+    rm -rf $ORACLE_HOME/md && \
+    rm -rf $ORACLE_HOME/nls/demo && \
+    rm -rf $ORACLE_HOME/odbc && \
+    rm -rf $ORACLE_HOME/rdbms/jlib && \
+    rm -rf $ORACLE_HOME/rdbms/public && \
+    rm -rf $ORACLE_HOME/rdbms/demo && \
+    rm -rf $ORACLE_HOME/bin/rman && \
     chmod ug+x $ORACLE_BASE/*.sh
+
 
 HEALTHCHECK --interval=1m --start-period=5m \
    CMD "$ORACLE_BASE/$CHECK_DB_FILE" >/dev/null || exit 1
