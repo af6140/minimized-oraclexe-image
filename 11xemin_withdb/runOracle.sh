@@ -188,6 +188,11 @@ EXTPROC_CONNECTION_DATA =
       host rm -rf /u01/app/oracle/product/11.2.0/xe/apex
       host rm -rf /u01/app/oracle/product/11.2.0/xe/ctx
 
+      -- Here we execute the shrink Script to reduce the SYSAUX TS
+      @/u01/app/oracle/shrink_sysaux.sql
+      shutdown immediate;
+      startup;
+
       exit;
 EOF"
 
